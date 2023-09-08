@@ -1,9 +1,8 @@
 import { Logo } from '@/components/logo';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import React from 'react';
+import CompleteSetupForm from '@/features/complete-setup/form';
 
 function ProfileSetupPage() {
+  async function handleCompleteSetup() {}
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="flex flex-col gap-4 items-center justify-center">
@@ -18,16 +17,7 @@ function ProfileSetupPage() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <Label htmlFor="email" className="text-sm font-normal">
-              Username
-            </Label>
-            <Input
-              id="username"
-              name="username"
-              placeholder="Enter your username..."
-            />
-          </div>
+          <CompleteSetupForm />
         </div>
       </div>
     </div>

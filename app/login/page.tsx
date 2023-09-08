@@ -8,6 +8,8 @@ import { IconLoader2 } from '@tabler/icons-react';
 import { signIn, useSession } from 'next-auth/react';
 import { useForm } from '@/hooks/useForm';
 import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
+import AppLogo from '@/components/ui/logo';
 
 function Login() {
   const router = useRouter();
@@ -32,8 +34,10 @@ function Login() {
   }, [formValues.email, sendingMail]);
 
   useEffect(() => {
-    if (data?.user && !data.user.hasCompletedSignup)
+    if (data?.user && data.user.hasCompletedSignup) router.replace('/');
+    if (data?.user && !data.user.hasCompletedSignup) {
       router.replace('/complete-setup');
+    }
   }, [status, data]);
 
   async function handleSignup() {
@@ -44,7 +48,7 @@ function Login() {
       redirect: true,
     })
       .then((data) => {
-        console.log(data, 'DATA FROM SIGNIN');
+        toast.success('Login Link Sent');
         setSendingMail(false);
       })
       .catch((err) => {
@@ -65,7 +69,7 @@ function Login() {
       ) : status === 'unauthenticated' ? (
         <div className="flex items-center justify-center min-h-screen">
           <div className="flex flex-col gap-4 items-center justify-center">
-            <Logo />
+            <AppLogo />
             <form
               onSubmit={handleSubmit}
               className="border bg-card flex flex-col gap-4 p-4 px-8"

@@ -2,23 +2,21 @@ import * as React from 'react';
 export const Logo = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={40}
-    height={40}
+    width={32}
+    height={32}
     fill="none"
     {...props}
   >
     <path
       fill="#000"
       fillRule="evenodd"
-      d="M25.556 11.685A10 10 0 0 0 20 10V0A20 20 0 1 1 0 20h10a10 10 0 1 0 15.556-8.315Z"
-      className="ccustom"
+      d="M20.445 9.348A8 8 0 0 0 16 8V0A16 16 0 1 1 0 16h8a8 8 0 1 0 12.445-6.652Z"
       clipRule="evenodd"
     />
     <path
       fill="#000"
       fillRule="evenodd"
-      d="M10 0A10 10 0 0 1 0 10v10A20 20 0 0 0 20 0H10Z"
-      className="ccustom"
+      d="M8 0a8 8 0 0 1-8 8v8A16 16 0 0 0 16 0H8Z"
       clipRule="evenodd"
     />
   </svg>

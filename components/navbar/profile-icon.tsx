@@ -12,7 +12,11 @@ function ProfileIcon() {
     <div>
       {data?.user && data.user.hasCompletedSignup ? (
         <div className="flex items-center gap-2">
-          {!data.user.isSeller && <Button>Sell your products</Button>}
+          {!data.user.isSeller && (
+            <Link href="/become-seller?callbackUrl=/create-product">
+              <Button>Sell your products</Button>
+            </Link>
+          )}
           <Button variant="outline">
             <IconShoppingCart className="icon" />
           </Button>

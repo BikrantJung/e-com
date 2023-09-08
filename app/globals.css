@@ -78,4 +78,7 @@
   .icon {
     @apply h-4 w-4 stroke-[1.5px];
   }
+  .test {
+    color: var(tw--blue-400);
+  }
 }

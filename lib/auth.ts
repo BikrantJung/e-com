@@ -31,8 +31,6 @@ export const authOptions: NextAuthOptions = {
 
   callbacks: {
     async session({ session, user }) {
-      console.log({ session, user });
-
       const userData = await db.user.findUnique({
         where: {
           email: user.email,
@@ -46,17 +44,15 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
     async signIn(data) {
-      console.log({ message: 'Sign in callback', data });
       return true;
     },
   },
   events: {
-    async signIn(message) {
-      console.log(message, 'SIGN IN MESSAGE EVENT');
-    },
+    async signIn(message) {},
   },
   pages: {
     verifyRequest: '/verify-request',
+    signIn: '/login',
   },
 };
 
